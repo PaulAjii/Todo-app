@@ -2,9 +2,12 @@ require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
 
+// * DB Config
 const connectDB = require("./db/config")
+
+// * ROUTES
 const todoRoutes = require("./routes/Todo")
-// TODO: Create a User route
+const userRoutes = require("./routes/User")
 // TODO: Create middlewares
 
 const app = express()
@@ -15,6 +18,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use("/api/v1/todos", todoRoutes)
+app.use("/api/v1/users", userRoutes)
 
 const start = async () => {
   try {
