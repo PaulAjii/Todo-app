@@ -9,7 +9,7 @@ const createToken = (_id) => {
 // // Get all Users
 const getUsers = async (req, res) => {
   try {
-    const users = await User.find()
+    const users = await User.find().select("-password")
 
     res.status(200).json({
       status: 0,
@@ -34,7 +34,7 @@ const signUp = async (req, res) => {
 
     res.status(201).json({
       status: 0,
-      user,
+      email,
       token
     })
   } catch (err) {
