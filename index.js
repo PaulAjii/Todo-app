@@ -8,7 +8,6 @@ const connectDB = require("./db/config")
 // * ROUTES
 const todoRoutes = require("./routes/Todo")
 const userRoutes = require("./routes/User")
-// TODO: Create middlewares
 
 const app = express()
 

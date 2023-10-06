@@ -11,10 +11,10 @@ const todoSchema = new mongoose.Schema({
     default: false
   },
 
-  // user_id: {
-  //   type: String,
-  //   required: true
-  // }
+  userId: {
+    type: String,
+    required: true
+  }
 },
   {
     timestamps: true
