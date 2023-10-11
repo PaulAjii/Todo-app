@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    [class] {
+      color: red;
+    }
+
+    [class="paragraph"] {
+      font-weight: 700;
+    }
+
+    [class~="paragraph"] {
+      font-size: 30px;
+    }
+
+    [hreflang|="en"] {
+      color: yellow;
+      text-decoration: none;
+    }
+
+    [class^="te"] {
+      font-family: Poppins;
+    }
+
+    [class$="th"] {
+      font-size: 25px;
+    }
+
+    [class*="t"] {
+      font-weight: 900;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text">Hello World</h1>
+
+  <h4 class="text">This is a smaller heading</h4>
+
+  <span class="tenth">This is a span</span>
+
+  <p class="paragraph subtitle">This is a paragraph</p>
+
+  <a href="#" hreflang="en-US">This is an empty link</a>
+
+  <div style="background-color: red">
+    A block level element
+    <p>
+      A block level element in another block level element
+    </p>
+    <span>This is an inline element in a block level element</span>
+  </div>
+
+  <span style="background-color: green">
+    This is a span
+    <p>This is a paragraph in a span</p>
+  </span>
+
+  <script>
+    const baseURL = "https://api-todo-9rux.onrender.com/api/v1"
+
+    const bodyData = {
+          email: "mydummy@example.com",
+          password: "123abc123ABC*"
+        }
+    const bodyJSON = JSON.stringify(bodyData)
+
+    const fetchData = async () => {
+      const res = await fetch(`${ baseURL }/users/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: bodyJSON
+      })
+
+      const jsonData = await res.json()
+      console.log(jsonData)
+
+      return jsonData.token
+    }
+
+    // const token = fetchData()
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTI2MzE5M2YwNmFhYTJiNmZkNmE4M2IiLCJpYXQiOjE2OTcwMDI0MjAsImV4cCI6MTY5NzA4ODgyMH0.Fawx5AtofO-jVU6wvWYFD_rwLXrR5thU3Q94sYrAoMs"
+
+    const todoData = {
+      title: "This is todo from Frontend"
+    }
+    const todoJSON = JSON.stringify(todoData)
+
+    const setTodo = async () => {
+      const res = await fetch(`${ baseURL }/todos`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${ token }`
+        },
+        body: todoJSON
+      })
+
+      const jsonData = await res.json()
+
+      console.log(jsonData)
+    }
+
+    setTodo()
+  </script>
+</body>
+</html>
