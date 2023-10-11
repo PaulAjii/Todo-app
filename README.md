@@ -24,10 +24,9 @@ Looking into adding some other features like **Reminder**, **Categories**, Todo 
 
 This API is built for an educational purpose but can be used by anyone.
 
-
 ## BASE URL
 
-**https://api-todo-9rux.onrender.com/api/v1**
+**`https://api-todo-9rux.onrender.com/api/v1`**
 
 
 ## USAGE
@@ -493,7 +492,95 @@ As a **JavaScript Object**
 ### Cloning API Project Files
 Cloning and running the API in the Local Computer can be done by running:
 
+Using SSH
+
+```bash
+> git clone git@github.com:PaulAjii/Todo-app.git
 ```
-git clone <project-files-link>
-cd
+
+Using HTTPS
+```bash
+> git clone https://github.com/PaulAjii/Todo-app.git
 ```
+
+### Running the App Locally
+After successfully cloning :+1:, install the dependencies and run:
+
+```bash
+# change directory into the cloned app: Todo-app
+> cd Todo-app
+
+# install dependencies
+> npm install
+
+# start app
+> npm run dev
+```
+
+### Running the app
+First create a `.env` file in the root directory of the project.
+   - This is where the DataBase URI will be placed and accessed in the app using `process.env`
+
+In the root directory, run:
+
+```sh
+# create a .env file
+> touch .env
+```
+
+In the `.env` file fill in the following:
+
+```.env
+DB_URI="some mongodb database URI string"
+JWT_SECRET="some random long string"
+PORT="PORT on which the app should run, else it will default to port 3000"
+```
+
+Having installled all dependencies, and created a `.env` file, start the app:
+
+```bash
+# to start nodemon
+> npm run dev
+
+# using node
+> npm start
+```
+
+Terminal Snippet:
+
+```bash
+# run local server using nodemon
+> npm run dev
+```
+
+Response in Terminal: *if all is well*
+
+```bash
+> api@1.0.0 dev
+> nodemon index.js
+
+[nodemon] 3.0.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node index.js`
+Successfully connected to the database...
+Server running successfully on port 3000...
+```
+
+With the above, all things work well :+1:, server works well.
+Keep Hacking. :robot::robot::robot::man_technologist::man_technologist::man_technologist::man_technologist:
+
+### Technologies used
+   - [NodeJS](https://www.nodejs.org)
+   - [Expressjs](https://www.expressjs.com)
+   - [MongoDB](https://www.mongodb.com)
+   - [Mongoose](https://www.mongoosejs.com)
+   - [Dotenv](https://www.npmjs.com/package/dotenv)
+   - [Nodemon](https://www.npmjs.com/package/nodemon)
+   - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+   - [CORS](https://www.npmjs.com/package/cors)
+   - [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken)
+   - [Validator](https://www.npmjs.com/package/validator)
+
+Editor used: [Visual Studio Code: VS Code](https://code.visualstudio.com/)
