@@ -43,7 +43,7 @@ This is required before any request can be made. This API uses JSONWebToken. You
    - Body contains: in `JSON` format.
      - email
      - password:
-         -must contain ***, lowercase, numbers, and symbols***
+         -must contain ***uppercase, lowercase, numbers, and symbols***
          - must be more than **6** characters.
 
 Code Snippet:
